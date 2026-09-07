@@ -1,0 +1,2109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VieOS — Enterprise IT Infrastructure & Security Engineer</title>
+  <meta name="description" content="VieOS is an enterprise IT infrastructure and security engineer with 9+ years experience managing mission-critical networks, dual data centers, and cybersecurity for 100+ sites.">
+  <meta name="theme-color" content="#020617">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Core colors */
+      --color-primary: #0F172A;
+      --color-on-primary: #FFFFFF;
+      --color-secondary: #1E293B;
+      --color-accent: #22C55E;
+      --color-accent-dark: #16A34A;
+      --color-background: #020617;
+      --color-background-elev: #0B1221;
+      --color-foreground: #F8FAFC;
+      --color-foreground-muted: #94A3B8;
+      --color-muted: #1A1E2F;
+      --color-border: #334155;
+      --color-destructive: #EF4444;
+      --color-ring: #22C55E;
+      /* Spacing */
+      --space-xs: 0.5rem;
+      --space-sm: 0.75rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2rem;
+      --space-2xl: 3rem;
+      --space-3xl: 4rem;
+      --space-4xl: 6rem;
+      --space-5xl: 8rem;
+      /* Typography */
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Archivo', sans-serif;
+      --fs-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --fs-sm: clamp(0.875rem, 0.8rem + 0.25vw, 1rem);
+      --fs-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --fs-lg: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+      --fs-xl: clamp(1.5rem, 1.2rem + 1vw, 2.25rem);
+      --fs-2xl: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+      --fs-3xl: clamp(2.5rem, 1.8rem + 3vw, 5rem);
+      /* Layout */
+      --container: 1200px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 24px -4px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 8px 40px -8px rgba(0, 0, 0, 0.5);
+      --transition-fast: 150ms ease;
+      --transition-base: 250ms ease;
+      --transition-slow: 350ms ease;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: var(--fs-base);
+      line-height: 1.6;
+      color: var(--color-foreground);
+      background: var(--color-background);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: var(--space-md) 0;
+      transition: background var(--transition-base), box-shadow var(--transition-base), padding var(--transition-base);
+    }
+
+    .header.is-scrolled {
+      background: rgba(2, 6, 23, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: var(--shadow-md);
+      padding: var(--space-sm) 0;
+    }
+
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: var(--fs-lg);
+      color: var(--color-foreground);
+    }
+
+    .logo__mark {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background: var(--color-accent);
+      color: var(--color-primary);
+      font-weight: 700;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+    }
+
+    .nav__list {
+      display: none;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .nav__link {
+      display: inline-flex;
+      padding: var(--space-xs) var(--space-sm);
+      font-family: var(--font-display);
+      font-size: var(--fs-sm);
+      font-weight: 500;
+      color: var(--color-foreground-muted);
+      border-radius: var(--radius-sm);
+      transition: color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .nav__link:hover,
+    .nav__link:focus-visible {
+      color: var(--color-foreground);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav__link.is-active {
+      color: var(--color-accent);
+    }
+
+    .nav__cta {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-sm) var(--space-lg);
+      font-family: var(--font-display);
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      color: var(--color-primary);
+      background: var(--color-accent);
+      border-radius: var(--radius-md);
+      transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .nav__cta:hover,
+    .nav__cta:focus-visible {
+      background: var(--color-accent-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 0 20px rgba(34, 197, 94, 0.25);
+    }
+
+    .nav__toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      color: var(--color-foreground);
+      border-radius: var(--radius-sm);
+      transition: background var(--transition-fast);
+    }
+
+    .nav__toggle:hover,
+    .nav__toggle:focus-visible {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav__menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(80vw, 320px);
+      background: var(--color-background-elev);
+      border-left: 1px solid var(--color-border);
+      padding: var(--space-2xl) var(--space-xl);
+      transform: translateX(100%);
+      transition: transform var(--transition-base);
+      z-index: 101;
+    }
+
+    .nav__menu.is-open {
+      transform: translateX(0);
+    }
+
+    .nav__menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-base);
+      z-index: 100;
+    }
+
+    .nav__menu-overlay.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .nav__menu-close {
+      position: absolute;
+      top: var(--space-md);
+      right: var(--space-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      color: var(--color-foreground);
+      border-radius: var(--radius-sm);
+      transition: background var(--transition-fast);
+    }
+
+    .nav__menu-close:hover,
+    .nav__menu-close:focus-visible {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav__menu-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      margin-top: var(--space-2xl);
+    }
+
+    .nav__menu-link {
+      display: block;
+      padding: var(--space-sm) 0;
+      font-family: var(--font-display);
+      font-size: var(--fs-lg);
+      font-weight: 500;
+      color: var(--color-foreground-muted);
+      border-bottom: 1px solid var(--color-border);
+      transition: color var(--transition-fast), padding-left var(--transition-fast);
+    }
+
+    .nav__menu-link:hover,
+    .nav__menu-link:focus-visible {
+      color: var(--color-foreground);
+      padding-left: var(--space-sm);
+    }
+
+    .nav__menu-cta {
+      display: flex;
+      justify-content: center;
+      padding: var(--space-md) var(--space-lg);
+      margin-top: var(--space-xl);
+      font-family: var(--font-display);
+      font-weight: 600;
+      color: var(--color-primary);
+      background: var(--color-accent);
+      border-radius: var(--radius-md);
+      transition: background var(--transition-fast);
+    }
+
+    .nav__menu-cta:hover,
+    .nav__menu-cta:focus-visible {
+      background: var(--color-accent-dark);
+    }
+
+    @media (min-width: 900px) {
+      .nav__list,
+      .nav__cta {
+        display: flex;
+      }
+      .nav__toggle,
+      .nav__menu,
+      .nav__menu-overlay {
+        display: none;
+      }
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      padding: calc(120px + var(--space-3xl)) 0 var(--space-4xl);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 70% 30%, rgba(34, 197, 94, 0.08), transparent 45%),
+                  radial-gradient(circle at 30% 70%, rgba(30, 41, 59, 0.5), transparent 45%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-xs) var(--space-md);
+      margin-bottom: var(--space-xl);
+      font-family: var(--font-display);
+      font-size: var(--fs-sm);
+      font-weight: 500;
+      color: var(--color-accent);
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      border-radius: 999px;
+    }
+
+    .hero__badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      animation: pulse-dot 2s infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.2); }
+    }
+
+    .hero__title {
+      font-family: var(--font-display);
+      font-size: var(--fs-3xl);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      max-width: 900px;
+      margin-bottom: var(--space-lg);
+      color: var(--color-foreground);
+    }
+
+    .hero__title-accent {
+      color: var(--color-accent);
+    }
+
+    .hero__subtitle {
+      max-width: 720px;
+      font-size: var(--fs-lg);
+      color: var(--color-foreground-muted);
+      margin-bottom: var(--space-xl);
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      margin-bottom: var(--space-3xl);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      padding: var(--space-md) var(--space-xl);
+      font-family: var(--font-display);
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+      cursor: pointer;
+    }
+
+    .btn--primary {
+      color: var(--color-primary);
+      background: var(--color-accent);
+      border: 1px solid var(--color-accent);
+    }
+
+    .btn--primary:hover,
+    .btn--primary:focus-visible {
+      background: var(--color-accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 0 24px rgba(34, 197, 94, 0.25);
+    }
+
+    .btn--secondary {
+      color: var(--color-foreground);
+      background: transparent;
+      border: 1px solid var(--color-border);
+    }
+
+    .btn--secondary:hover,
+    .btn--secondary:focus-visible {
+      color: var(--color-foreground);
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--color-foreground-muted);
+      transform: translateY(-2px);
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--color-ring);
+      outline-offset: 2px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-md);
+    }
+
+    .stats__card {
+      padding: var(--space-lg);
+      background: var(--color-background-elev);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .stats__card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(34, 197, 94, 0.4);
+      box-shadow: var(--shadow-md);
+    }
+
+    .stats__value {
+      font-family: var(--font-display);
+      font-size: var(--fs-xl);
+      font-weight: 700;
+      color: var(--color-foreground);
+      margin-bottom: var(--space-xs);
+    }
+
+    .stats__value span {
+      color: var(--color-accent);
+    }
+
+    .stats__label {
+      font-size: var(--fs-sm);
+      color: var(--color-foreground-muted);
+      line-height: 1.4;
+    }
+
+    @media (min-width: 640px) {
+      .stats {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (min-width: 900px) {
+      .stats {
+        grid-template-columns: repeat(6, 1fr);
+      }
+    }
+
+    /* Section base */
+    .section {
+      padding: var(--space-4xl) 0;
+    }
+
+    .section__header {
+      margin-bottom: var(--space-2xl);
+    }
+
+    .section__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-family: var(--font-display);
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-md);
+    }
+
+    .section__title {
+      font-family: var(--font-display);
+      font-size: var(--fs-2xl);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--color-foreground);
+      max-width: 700px;
+    }
+
+    .section__desc {
+      max-width: 680px;
+      margin-top: var(--space-md);
+      color: var(--color-foreground-muted);
+      font-size: var(--fs-base);
+    }
+
+    /* About */
+    .about__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+    }
+
+    .about__body {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    .about__text {
+      color: var(--color-foreground-muted);
+      font-size: var(--fs-base);
+    }
+
+    .about__text strong {
+      color: var(--color-foreground);
+      font-weight: 600;
+    }
+
+    .about__card {
+      padding: var(--space-xl);
+      background: var(--color-background-elev);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+    }
+
+    .about__card-title {
+      font-family: var(--font-display);
+      font-size: var(--fs-lg);
+      font-weight: 600;
+      color: var(--color-foreground);
+      margin-bottom: var(--space-lg);
+    }
+
+    .about__list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .about__item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: var(--space-md);
+      padding-bottom: var(--space-md);
+      border-bottom: 1px solid var(--color-border);
+      font-size: var(--fs-sm);
+    }
+
+    .about__item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .about__label {
+      color: var(--color-foreground-muted);
+      flex-shrink: 0;
+    }
+
+    .about__value {
+      color: var(--color-foreground);
+      font-weight: 500;
+      text-align: right;
+    }
+
+    .about__value--highlight {
+      color: var(--color-accent);
+      font-weight: 600;
+    }
+
+    .about__value--badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-xs) var(--space-sm);
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      border-radius: 999px;
+      color: var(--color-accent);
+      font-size: var(--fs-xs);
+      font-weight: 600;
+    }
+
+    @media (min-width: 900px) {
+      .about__grid {
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items: start;
+      }
+    }
+
+    /* Skills */
+    .skills__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+      margin-bottom: var(--space-3xl);
+    }
+
+    .skill-card {
+      padding: var(--space-xl);
+      background: var(--color-background-elev);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(34, 197, 94, 0.4);
+      box-shadow: var(--shadow-md);
+    }
+
+    .skill-card__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+
+    .skill-card__title {
+      font-family: var(--font-display);
+      font-size: var(--fs-lg);
+      font-weight: 600;
+      color: var(--color-foreground);
+    }
+
+    .skill-card__percent {
+      font-family: var(--font-display);
+      font-size: var(--fs-lg);
+      font-weight: 700;
+      color: var(--color-accent);
+    }
+
+    .skill-card__bar {
+      height: 8px;
+      background: var(--color-muted);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: var(--space-md);
+    }
+
+    .skill-card__progress {
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, var(--color-accent-dark), var(--color-accent));
+      border-radius: 999px;
+      transition: width 1200ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .skill-card__desc {
+      font-size: var(--fs-sm);
+      color: var(--color-foreground-muted);
+      line-height: 1.5;
+    }
+
+    @media (min-width: 640px) {
+      .skills__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .tech-cloud__title {
+      font-family: var(--font-display);
+      font-size: var(--fs-lg);
+      font-weight: 600;
+      color: var(--color-foreground);
+      margin-bottom: var(--space-lg);
+    }
+
+    .tech-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .tech-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: var(--space-sm) var(--space-md);
+      font-family: var(--font-display);
+      font-size: var(--fs-sm);
+      font-weight: 500;
+      color: var(--color-foreground-muted);
+      background: var(--color-background-elev);
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      transition: color var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .tech-tag:hover,
+    .tech-tag:focus-visible {
+      color: var(--color-foreground);
+      background: rgba(34, 197, 94, 0.1);
+      border-color: rgba(34, 197, 94, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .tech-tag:focus-visible {
+      outline: 2px solid var(--color-ring);
+      outline-offset: 2px;
+    }
+
+    /* Services */
+    .services__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    .service-card {
+      position: relative;
+      padding: var(--space-xl);
+      background: var(--color-background-elev);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-accent-dark), var(--color-accent));
+      opacity: 0;
+      transition: opacity var(--transition-base);
+    }
+
+    .service-card:hover::before,
+    .service-card:focus-within::before {
+      opacity: 1;
+    }
+
+    .service-card:hover,
+    .service-card:focus-within {
+      transform: translateY(-4px);
+      border-color: rgba(34, 197, 94, 0.4);
+      box-shadow: var(--shadow-md);
+    }
+
+    .service-card:focus-within {
+      outline: none;
+    }
+
+    .service-card__number {
+      position: absolute;
+      top: var(--space-md);
+      right: var(--space-md);
+      font-family: var(--font-display);
+      font-size: var(--fs-xl);
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.05);
+      line-height: 1;
+    }
+
+    .service-card__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      margin-bottom: var(--space-lg);
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      border-radius: var(--radius-md);
+      color: var(--color-accent);
+    }
+
+    .service-card__icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .service-card__title {
+      font-family: var(--font-display);
+      font-size: var(--fs-lg);
+      font-weight: 600;
+      color: var(--color-foreground);
+      margin-bottom: var(--space-sm);
+    }
+
+    .service-card__desc {
+      font-size: var(--fs-sm);
+      color: var(--color-foreground-muted);
+      line-height: 1.5;
+      margin-bottom: var(--space-lg);
+    }
+
+    .service-card__price {
+      display: inline-flex;
+      align-items: baseline;
+      gap: var(--space-xs);
+      font-family: var(--font-display);
+      font-size: var(--fs-lg);
+      font-weight: 700;
+      color: var(--color-accent);
+    }
+
+    .service-card__price span {
+      font-size: var(--fs-sm);
+      font-weight: 400;
+      color: var(--color-foreground-muted);
+    }
+
+    @media (min-width: 640px) {
+      .services__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .services__grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Experience */
+    .experience__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    .exp-card {
+      padding: var(--space-xl);
+      background: var(--color-background-elev);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .exp-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(34, 197, 94, 0.4);
+      box-shadow: var(--shadow-md);
+    }
+
+    .exp-card__period {
+      display: inline-flex;
+      padding: var(--space-xs) var(--space-md);
+      margin-bottom: var(--space-md);
+      font-family: var(--font-display);
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      color: var(--color-accent);
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      border-radius: 999px;
+    }
+
+    .exp-card__title {
+      font-family: var(--font-display);
+      font-size: var(--fs-xl);
+      font-weight: 600;
+      color: var(--color-foreground);
+      margin-bottom: var(--space-sm);
+    }
+
+    .exp-card__company {
+      font-size: var(--fs-sm);
+      color: var(--color-foreground-muted);
+      margin-bottom: var(--space-md);
+    }
+
+    .exp-card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+    }
+
+    .exp-card__tag {
+      padding: var(--space-xs) var(--space-sm);
+      font-size: var(--fs-xs);
+      font-weight: 500;
+      color: var(--color-foreground-muted);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+    }
+
+    @media (min-width: 640px) {
+      .experience__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Contact */
+    .contact__card {
+      position: relative;
+      padding: var(--space-3xl) var(--space-xl);
+      background: linear-gradient(135deg, var(--color-secondary), var(--color-background-elev));
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+    }
+
+    .contact__card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(34, 197, 94, 0.12), transparent 60%);
+      pointer-events: none;
+    }
+
+    .contact__inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+      align-items: center;
+    }
+
+    .contact__title {
+      font-family: var(--font-display);
+      font-size: var(--fs-2xl);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--color-foreground);
+      margin-bottom: var(--space-md);
+    }
+
+    .contact__desc {
+      color: var(--color-foreground-muted);
+      font-size: var(--fs-base);
+      max-width: 560px;
+      margin-bottom: var(--space-xl);
+    }
+
+    .contact__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+    }
+
+    .contact__link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-md) var(--space-lg);
+      font-family: var(--font-display);
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      color: var(--color-foreground);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .contact__link:hover,
+    .contact__link:focus-visible {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--color-accent);
+      transform: translateY(-2px);
+    }
+
+    .contact__link:focus-visible {
+      outline: 2px solid var(--color-ring);
+      outline-offset: 2px;
+    }
+
+    .contact__link svg {
+      width: 20px;
+      height: 20px;
+      color: var(--color-accent);
+    }
+
+    @media (min-width: 900px) {
+      .contact__inner {
+        grid-template-columns: 1.2fr 0.8fr;
+      }
+      .contact__card {
+        padding: var(--space-3xl) var(--space-3xl);
+      }
+    }
+
+    /* Footer */
+    .footer {
+      padding: var(--space-2xl) 0;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .footer__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-md);
+      text-align: center;
+    }
+
+    .footer__brand {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: var(--fs-lg);
+      color: var(--color-foreground);
+    }
+
+    .footer__copy {
+      font-size: var(--fs-sm);
+      color: var(--color-foreground-muted);
+    }
+
+    /* Admin: login modal */
+    .admin-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      margin-top: var(--space-sm);
+      padding: var(--space-xs) var(--space-md);
+      font-family: var(--font-display);
+      font-size: var(--fs-xs);
+      font-weight: 500;
+      color: var(--color-foreground-muted);
+      background: transparent;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: color var(--transition-fast), border-color var(--transition-fast);
+    }
+    .admin-trigger:hover,
+    .admin-trigger:focus-visible {
+      color: var(--color-foreground);
+      border-color: var(--color-foreground-muted);
+    }
+
+    .admin-modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-lg);
+      background: rgba(2, 6, 23, 0.8);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .admin-modal-overlay.is-open { display: flex; }
+
+    .admin-modal {
+      width: 100%;
+      max-width: 380px;
+      padding: var(--space-xl);
+      background: var(--color-background-elev);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+    }
+    .admin-modal.is-error { animation: admin-shake 300ms ease; }
+    @keyframes admin-shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-8px); }
+      75% { transform: translateX(8px); }
+    }
+
+    .admin-modal__title {
+      font-family: var(--font-display);
+      font-size: var(--fs-lg);
+      font-weight: 600;
+      color: var(--color-foreground);
+      margin-bottom: var(--space-xs);
+    }
+    .admin-modal__desc {
+      font-size: var(--fs-sm);
+      color: var(--color-foreground-muted);
+      margin-bottom: var(--space-lg);
+    }
+    .admin-modal__label {
+      display: block;
+      font-family: var(--font-display);
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      color: var(--color-foreground-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-xs);
+    }
+    .admin-modal__input {
+      width: 100%;
+      padding: var(--space-md);
+      font: inherit;
+      font-size: var(--fs-sm);
+      color: var(--color-foreground);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-md);
+      transition: border-color var(--transition-fast);
+    }
+    .admin-modal__input:focus {
+      outline: none;
+      border-color: var(--color-accent);
+    }
+    .admin-modal__error {
+      display: none;
+      font-size: var(--fs-xs);
+      color: var(--color-destructive);
+      margin-bottom: var(--space-md);
+    }
+    .admin-modal__error.is-visible { display: block; }
+    .admin-modal__actions {
+      display: flex;
+      gap: var(--space-sm);
+    }
+    .admin-modal__actions .btn { flex: 1; padding: var(--space-sm) var(--space-md); }
+
+    /* Admin: toolbar */
+    .admin-toolbar {
+      position: fixed;
+      left: 50%;
+      bottom: var(--space-lg);
+      transform: translateX(-50%) translateY(150%);
+      z-index: 190;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      max-width: calc(100vw - 2 * var(--space-lg));
+      padding: var(--space-sm) var(--space-md);
+      background: rgba(11, 18, 33, 0.95);
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: transform var(--transition-base);
+    }
+    body.is-admin .admin-toolbar { transform: translateX(-50%) translateY(0); }
+
+    .admin-toolbar__status {
+      font-family: var(--font-display);
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      color: var(--color-accent);
+      padding: 0 var(--space-sm);
+      white-space: nowrap;
+    }
+    .admin-toolbar__btn {
+      padding: var(--space-xs) var(--space-md);
+      font-family: var(--font-display);
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      color: var(--color-foreground);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background var(--transition-fast), border-color var(--transition-fast);
+    }
+    .admin-toolbar__btn:hover,
+    .admin-toolbar__btn:focus-visible {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--color-foreground-muted);
+    }
+    .admin-toolbar__btn--accent {
+      color: var(--color-primary);
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+    }
+    .admin-toolbar__btn--accent:hover,
+    .admin-toolbar__btn--accent:focus-visible {
+      background: var(--color-accent-dark);
+      border-color: var(--color-accent-dark);
+    }
+    .admin-toolbar__btn--danger { color: var(--color-destructive); }
+    .admin-toolbar__btn.is-active {
+      color: var(--color-primary);
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+    }
+
+    /* Edit mode highlight */
+    body.is-editing [contenteditable="true"] {
+      outline: 1px dashed rgba(34, 197, 94, 0.6);
+      outline-offset: 3px;
+      border-radius: 4px;
+      cursor: text;
+      transition: background var(--transition-fast);
+    }
+    body.is-editing [contenteditable="true"]:hover {
+      background: rgba(34, 197, 94, 0.07);
+    }
+    body.is-editing [contenteditable="true"]:focus {
+      outline: 2px solid var(--color-accent);
+      background: rgba(34, 197, 94, 0.1);
+    }
+
+    @media (max-width: 560px) {
+      .admin-toolbar { border-radius: var(--radius-lg); }
+    }
+
+    /* Reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1), transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal--stagger-1 { transition-delay: 80ms; }
+    .reveal--stagger-2 { transition-delay: 160ms; }
+    .reveal--stagger-3 { transition-delay: 240ms; }
+    .reveal--stagger-4 { transition-delay: 320ms; }
+    .reveal--stagger-5 { transition-delay: 400ms; }
+    .reveal--stagger-6 { transition-delay: 480ms; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* Utilities */
+    .text-accent { color: var(--color-accent); }
+    .text-muted { color: var(--color-foreground-muted); }
+
+    /* Focus states */
+    :focus-visible {
+      outline: 2px solid var(--color-ring);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="visually-hidden">Skip to main content</a>
+
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header__inner">
+        <a href="#" class="logo" aria-label="VieOS home">
+          <span class="logo__mark">V</span>
+          <span>VieOS</span>
+        </a>
+        <nav class="nav" aria-label="Primary navigation">
+          <ul class="nav__list">
+            <li><a href="#about" class="nav__link">About</a></li>
+            <li><a href="#skills" class="nav__link">Skills</a></li>
+            <li><a href="#services" class="nav__link">Services</a></li>
+            <li><a href="#experience" class="nav__link">Experience</a></li>
+            <li><a href="#contact" class="nav__link">Contact</a></li>
+          </ul>
+          <a href="#contact" class="nav__cta">Hire Me</a>
+          <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="nav__menu-overlay" id="menu-overlay" aria-hidden="true"></div>
+  <div class="nav__menu" id="mobile-menu" aria-label="Mobile navigation">
+    <button class="nav__menu-close" aria-label="Close menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <ul class="nav__menu-list">
+      <li><a href="#about" class="nav__menu-link">About</a></li>
+      <li><a href="#skills" class="nav__menu-link">Skills</a></li>
+      <li><a href="#services" class="nav__menu-link">Services</a></li>
+      <li><a href="#experience" class="nav__menu-link">Experience</a></li>
+      <li><a href="#contact" class="nav__menu-link">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav__menu-cta">Hire Me</a>
+  </div>
+
+  <main id="main">
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="hero__inner">
+          <div class="hero__badge reveal">
+            <span class="hero__badge-dot" aria-hidden="true"></span>
+            <span>Available for freelance & consulting</span>
+          </div>
+          <h1 class="hero__title reveal reveal--stagger-1">
+            Enterprise <span class="hero__title-accent">IT Infrastructure</span> & <span class="hero__title-accent">Security Engineer</span>
+          </h1>
+          <p class="hero__subtitle reveal reveal--stagger-2">
+            9 years designing, securing, and operating mission-critical infrastructure for 100+ sites and dual data centers where downtime is not an option.
+          </p>
+          <div class="hero__actions reveal reveal--stagger-3">
+            <a href="#contact" class="btn btn--primary">Get in Touch</a>
+            <a href="#services" class="btn btn--secondary">View Services</a>
+          </div>
+          <div class="stats">
+            <div class="stats__card reveal reveal--stagger-1">
+              <div class="stats__value"><span>9</span>+</div>
+              <div class="stats__label">Years Experience</div>
+            </div>
+            <div class="stats__card reveal reveal--stagger-2">
+              <div class="stats__value"><span>100</span>+</div>
+              <div class="stats__label">Sites Managed</div>
+            </div>
+            <div class="stats__card reveal reveal--stagger-3">
+              <div class="stats__value"><span>99.99</span>%</div>
+              <div class="stats__label">Uptime Maintained</div>
+            </div>
+            <div class="stats__card reveal reveal--stagger-4">
+              <div class="stats__value"><span>25</span>+</div>
+              <div class="stats__label">Technologies</div>
+            </div>
+            <div class="stats__card reveal reveal--stagger-5">
+              <div class="stats__value"><span>DC</span>/<span>DRC</span></div>
+              <div class="stats__label">Dual Data Centers</div>
+            </div>
+            <div class="stats__card reveal reveal--stagger-6">
+              <div class="stats__value"><span>24</span>h</div>
+              <div class="stats__label">Response Time</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__eyebrow">About</span>
+          <h2 class="section__title" id="about-title">Infrastructure engineer who has built from the ground up</h2>
+        </div>
+        <div class="about__grid">
+          <div class="about__body">
+            <p class="about__text reveal">
+              I started in the field — pulling fiber, terminating cables, configuring switches, and rolling out hardware to stations across the rail network. That foundation turned into a career operating and securing infrastructure that thousands of people depend on every day.
+            </p>
+            <p class="about__text reveal reveal--stagger-1">
+              Over the last 9 years at <strong>PT Kereta Commuter Indonesia</strong>, I have moved through roles covering <strong>hardware & networking, IT operations, infrastructure & data center, and security operations</strong>. I have designed and maintained multi-site WANs, deployed SD-WAN and firewalls, built VMware and Nutanix hyperconverged clusters, managed active-active failover between DC and DRC, and responded to security incidents using enterprise EDR, NAC, SIEM, and threat intelligence platforms.
+            </p>
+            <p class="about__text reveal reveal--stagger-2">
+              I am comfortable working across the full stack: from physical cabling and CCTV/NVR deployments to cloud-adjacent virtualization, PKI, SSL, and vulnerability assessment. I communicate best in writing, so I prefer <strong>chat or email</strong> for clear, documented collaboration.
+            </p>
+          </div>
+          <aside class="about__card reveal reveal--stagger-3">
+            <h3 class="about__card-title">Profile Summary</h3>
+            <ul class="about__list">
+              <li class="about__item">
+                <span class="about__label">Role</span>
+                <span class="about__value">Enterprise IT Infrastructure & Security</span>
+              </li>
+              <li class="about__item">
+                <span class="about__label">Experience</span>
+                <span class="about__value about__value--highlight">9+ Years</span>
+              </li>
+              <li class="about__item">
+                <span class="about__label">Focus Areas</span>
+                <span class="about__value">Network, DC/Virtualization, Security, Ops</span>
+              </li>
+              <li class="about__item">
+                <span class="about__label">Location</span>
+                <span class="about__value">Indonesia / Remote</span>
+              </li>
+              <li class="about__item">
+                <span class="about__label">Work Style</span>
+                <span class="about__value about__value--highlight">Chat / Email Preferred</span>
+              </li>
+              <li class="about__item">
+                <span class="about__label">Status</span>
+                <span class="about__value"><span class="about__value--badge">Available</span></span>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__eyebrow">Skills</span>
+          <h2 class="section__title" id="skills-title">Core capabilities across infrastructure, security, and operations</h2>
+          <p class="section__desc">Hands-on depth across the stack that keeps enterprise environments running, secure, and scalable.</p>
+        </div>
+
+        <div class="skills__grid">
+          <div class="skill-card reveal">
+            <div class="skill-card__header">
+              <h3 class="skill-card__title">Networking & SD-WAN</h3>
+              <span class="skill-card__percent">95%</span>
+            </div>
+            <div class="skill-card__bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="Networking and SD-WAN skill level">
+              <div class="skill-card__progress" data-width="95"></div>
+            </div>
+            <p class="skill-card__desc">Routing, switching, VLAN, VPN, fiber optic, IP transit, DNS propagation, Cisco, Fortinet, Forcepoint SD-WAN.</p>
+          </div>
+          <div class="skill-card reveal reveal--stagger-1">
+            <div class="skill-card__header">
+              <h3 class="skill-card__title">Data Center & Virtualization</h3>
+              <span class="skill-card__percent">92%</span>
+            </div>
+            <div class="skill-card__bar" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100" aria-label="Data center and virtualization skill level">
+              <div class="skill-card__progress" data-width="92"></div>
+            </div>
+            <p class="skill-card__desc">VMware vSphere/vSAN, Nutanix AHV, Hyper-V, HCI, DC/DRC design, failover, live migration, and capacity planning.</p>
+          </div>
+          <div class="skill-card reveal reveal--stagger-2">
+            <div class="skill-card__header">
+              <h3 class="skill-card__title">Cybersecurity</h3>
+              <span class="skill-card__percent">88%</span>
+            </div>
+            <div class="skill-card__bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" aria-label="Cybersecurity skill level">
+              <div class="skill-card__progress" data-width="88"></div>
+            </div>
+            <p class="skill-card__desc">Fortinet, Palo Alto, Check Point firewalls, SentinelOne EDR, ForeScout NAC, Group-IB, SIEM, VA/PT, SSL/PKI.</p>
+          </div>
+          <div class="skill-card reveal reveal--stagger-3">
+            <div class="skill-card__header">
+              <h3 class="skill-card__title">Operations & Field Engineering</h3>
+              <span class="skill-card__percent">90%</span>
+            </div>
+            <div class="skill-card__bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Operations and field engineering skill level">
+              <div class="skill-card__progress" data-width="90"></div>
+            </div>
+            <p class="skill-card__desc">Microsoft 365, Active Directory, multi-site rollout, device installation, documentation, audit, and 24/7 response.</p>
+          </div>
+        </div>
+
+        <h3 class="tech-cloud__title reveal">Technologies & Tools</h3>
+        <div class="tech-cloud">
+          <span class="tech-tag reveal reveal--stagger-1">Fortinet</span>
+          <span class="tech-tag reveal reveal--stagger-1">Palo Alto</span>
+          <span class="tech-tag reveal reveal--stagger-1">Check Point</span>
+          <span class="tech-tag reveal reveal--stagger-2">Cisco SD-WAN</span>
+          <span class="tech-tag reveal reveal--stagger-2">Forcepoint</span>
+          <span class="tech-tag reveal reveal--stagger-2">VMware vSphere</span>
+          <span class="tech-tag reveal reveal--stagger-3">Nutanix</span>
+          <span class="tech-tag reveal reveal--stagger-3">Hyper-V</span>
+          <span class="tech-tag reveal reveal--stagger-3">SentinelOne</span>
+          <span class="tech-tag reveal reveal--stagger-4">ForeScout</span>
+          <span class="tech-tag reveal reveal--stagger-4">Group-IB</span>
+          <span class="tech-tag reveal reveal--stagger-4">Stellar Cyber</span>
+          <span class="tech-tag reveal reveal--stagger-5">SOCRadar</span>
+          <span class="tech-tag reveal reveal--stagger-5">Kaspersky</span>
+          <span class="tech-tag reveal reveal--stagger-5">Active Directory</span>
+          <span class="tech-tag reveal reveal--stagger-6">Microsoft 365</span>
+          <span class="tech-tag reveal reveal--stagger-6">OpenVAS</span>
+          <span class="tech-tag reveal reveal--stagger-6">Nmap</span>
+          <span class="tech-tag reveal reveal--stagger-6">Nuclei</span>
+          <span class="tech-tag reveal reveal--stagger-6">SSL/PKI</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__eyebrow">Services</span>
+          <h2 class="section__title" id="services-title">What I can deliver for your environment</h2>
+          <p class="section__desc">Focused, practical services for teams that need reliable infrastructure and clear security posture.</p>
+        </div>
+        <div class="services__grid">
+          <article class="service-card reveal">
+            <span class="service-card__number">01</span>
+            <div class="service-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M12 1v6m0 6v6m4.22-10.22l4.24-4.24M6.34 6.34L2.1 2.1M23 12h-6m-6 0H1m20.12 4.22l4.24 4.24M6.34 17.66l-4.24 4.24"></path>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Network Design & Review</h3>
+            <p class="service-card__desc">Topology assessment, VLAN/IP planning, routing optimization, and SD-WAN readiness review.</p>
+            <div class="service-card__price">$300 <span>from</span></div>
+          </article>
+          <article class="service-card reveal reveal--stagger-1">
+            <span class="service-card__number">02</span>
+            <div class="service-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Firewall Audit & Hardening</h3>
+            <p class="service-card__desc">Rulebase cleanup, policy review, zone hardening, and Fortinet/Palo Alto/Check Point tuning.</p>
+            <div class="service-card__price">$250 <span>from</span></div>
+          </article>
+          <article class="service-card reveal reveal--stagger-2">
+            <span class="service-card__number">03</span>
+            <div class="service-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="M9 12l2 2 4-4"></path>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Vulnerability Assessment</h3>
+            <p class="service-card__desc">Internal/external scanning with OpenVAS/Nmap/Nuclei, risk prioritization, and remediation roadmap.</p>
+            <div class="service-card__price">$400 <span>from</span></div>
+          </article>
+          <article class="service-card reveal reveal--stagger-3">
+            <span class="service-card__number">04</span>
+            <div class="service-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                <line x1="6" y1="18" x2="6.01" y2="18"></line>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Infrastructure Consulting</h3>
+            <p class="service-card__desc">DC/virtualization design, HCI sizing, failover planning, migration strategy, and capacity review.</p>
+            <div class="service-card__price">$400 <span>from</span></div>
+          </article>
+          <article class="service-card reveal reveal--stagger-4">
+            <span class="service-card__number">05</span>
+            <div class="service-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </div>
+            <h3 class="service-card__title">SD-WAN Deployment</h3>
+            <p class="service-card__desc">Multi-site design, edge provisioning, path policy, traffic steering, and cutover coordination.</p>
+            <div class="service-card__price">$800 <span>from</span></div>
+          </article>
+          <article class="service-card reveal reveal--stagger-5">
+            <span class="service-card__number">06</span>
+            <div class="service-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <h3 class="service-card__title">IT Audit & Documentation</h3>
+            <p class="service-card__desc">As-built diagrams, asset inventory, SOP drafting, policy review, and compliance-ready documentation.</p>
+            <div class="service-card__price">$500 <span>from</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__eyebrow">Experience</span>
+          <h2 class="section__title" id="experience-title">Career progression across infrastructure and security</h2>
+          <p class="section__desc">From field deployments to enterprise security operations, building depth at every level.</p>
+        </div>
+        <div class="experience__grid">
+          <article class="exp-card reveal">
+            <span class="exp-card__period">2023 — Present</span>
+            <h3 class="exp-card__title">IT Security & Data Center Operations</h3>
+            <p class="exp-card__company">PT Kereta Commuter Indonesia</p>
+            <div class="exp-card__tags">
+              <span class="exp-card__tag">Security Operations</span>
+              <span class="exp-card__tag">SIEM</span>
+              <span class="exp-card__tag">EDR</span>
+              <span class="exp-card__tag">Threat Intel</span>
+            </div>
+          </article>
+          <article class="exp-card reveal reveal--stagger-1">
+            <span class="exp-card__period">2020 — 2023</span>
+            <h3 class="exp-card__title">IT Infrastructure & Data Center</h3>
+            <p class="exp-card__company">PT Kereta Commuter Indonesia</p>
+            <div class="exp-card__tags">
+              <span class="exp-card__tag">VMware</span>
+              <span class="exp-card__tag">Nutanix</span>
+              <span class="exp-card__tag">DC/DRC</span>
+              <span class="exp-card__tag">Failover</span>
+            </div>
+          </article>
+          <article class="exp-card reveal reveal--stagger-2">
+            <span class="exp-card__period">2018 — 2020</span>
+            <h3 class="exp-card__title">IT Operation</h3>
+            <p class="exp-card__company">PT Kereta Commuter Indonesia</p>
+            <div class="exp-card__tags">
+              <span class="exp-card__tag">M365</span>
+              <span class="exp-card__tag">Active Directory</span>
+              <span class="exp-card__tag">Monitoring</span>
+              <span class="exp-card__tag">Incident Response</span>
+            </div>
+          </article>
+          <article class="exp-card reveal reveal--stagger-3">
+            <span class="exp-card__period">2016 — 2018</span>
+            <h3 class="exp-card__title">IT Hardware & Networking</h3>
+            <p class="exp-card__company">PT Kereta Commuter Indonesia</p>
+            <div class="exp-card__tags">
+              <span class="exp-card__tag">Routing</span>
+              <span class="exp-card__tag">Switching</span>
+              <span class="exp-card__tag">CCTV</span>
+              <span class="exp-card__tag">Site Rollout</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact__card reveal">
+          <div class="contact__inner">
+            <div class="contact__content">
+              <span class="section__eyebrow">Contact</span>
+              <h2 class="contact__title" id="contact-title">Ready to secure your infrastructure?</h2>
+              <p class="contact__desc">Available for freelance projects, consulting, and full-time opportunities. Preferred communication: chat or email. Response time under 24 hours.</p>
+              <div class="contact__links">
+                <a href="mailto:contact@vieos.dev" class="contact__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                  contact@vieos.dev
+                </a>
+                <a href="https://www.upwork.com" target="_blank" rel="noopener noreferrer" class="contact__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                    <line x1="6" y1="1" x2="6" y2="4"></line>
+                    <line x1="10" y1="1" x2="10" y2="4"></line>
+                    <line x1="14" y1="1" x2="14" y2="4"></line>
+                  </svg>
+                  Upwork
+                </a>
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="contact__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                  LinkedIn
+                </a>
+                <a href="https://www.fiverr.com" target="_blank" rel="noopener noreferrer" class="contact__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                  Fiverr
+                </a>
+              </div>
+            </div>
+            <div class="contact__visual" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="160" height="160" fill="none" stroke="currentColor" stroke-width="1.5" style="color: rgba(34, 197, 94, 0.15); width: 100%; max-width: 220px; height: auto;">
+                <circle cx="100" cy="100" r="80" stroke-dasharray="4 6"></circle>
+                <circle cx="100" cy="100" r="55"></circle>
+                <circle cx="100" cy="100" r="30" stroke-dasharray="2 4"></circle>
+                <path d="M100 20v20M100 160v20M20 100h20M160 100h20M44 44l14 14M142 142l14 14M44 156l14-14M142 58l14-14"></path>
+                <path d="M100 70v30l20 12" stroke="var(--color-accent)" stroke-width="2"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <a href="#" class="footer__brand">
+          <span class="logo__mark">V</span>
+          <span>VieOS</span>
+        </a>
+        <p class="footer__copy">VieOS — IT Infrastructure & Security Engineer &middot; &copy; 2025</p>
+        <button type="button" class="admin-trigger" id="admin-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          Admin
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <div class="admin-modal-overlay" id="admin-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="admin-modal-title">
+    <form class="admin-modal" id="admin-form" novalidate>
+      <h3 class="admin-modal__title" id="admin-modal-title">Admin Login</h3>
+      <p class="admin-modal__desc">Enter your admin password to enable live editing.</p>
+      <label class="admin-modal__label" for="admin-password">Password</label>
+      <input class="admin-modal__input" type="password" id="admin-password" placeholder="Enter password" autocomplete="current-password" required>
+      <p class="admin-modal__error" id="admin-error">Incorrect password. Please try again.</p>
+      <div class="admin-modal__actions">
+        <button type="button" class="btn btn--secondary" id="admin-cancel">Cancel</button>
+        <button type="submit" class="btn btn--primary">Login</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="admin-toolbar" id="admin-toolbar" role="toolbar" aria-label="Admin tools" hidden>
+    <span class="admin-toolbar__status">Admin Mode</span>
+    <button type="button" class="admin-toolbar__btn" id="admin-edit-toggle" aria-pressed="false">Edit: Off</button>
+    <button type="button" class="admin-toolbar__btn" id="admin-save">Save</button>
+    <button type="button" class="admin-toolbar__btn" id="admin-export">Export HTML</button>
+    <button type="button" class="admin-toolbar__btn" id="admin-restore">Restore</button>
+    <button type="button" class="admin-toolbar__btn admin-toolbar__btn--danger" id="admin-logout">Logout</button>
+  </div>
+
+  <script>
+    (function() {
+      'use strict';
+
+      // Header scroll blur
+      const header = document.getElementById('header');
+      function updateHeader() {
+        if (window.scrollY > 10) {
+          header.classList.add('is-scrolled');
+        } else {
+          header.classList.remove('is-scrolled');
+        }
+      }
+      updateHeader();
+      window.addEventListener('scroll', updateHeader, { passive: true });
+
+      // Mobile menu
+      const menuToggle = document.querySelector('.nav__toggle');
+      const menuClose = document.querySelector('.nav__menu-close');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuOverlay = document.getElementById('menu-overlay');
+      const menuLinks = document.querySelectorAll('.nav__menu-link, .nav__menu-cta');
+
+      function openMenu() {
+        mobileMenu.classList.add('is-open');
+        menuOverlay.classList.add('is-open');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeMenu() {
+        mobileMenu.classList.remove('is-open');
+        menuOverlay.classList.remove('is-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+
+      menuToggle.addEventListener('click', openMenu);
+      menuClose.addEventListener('click', closeMenu);
+      menuOverlay.addEventListener('click', closeMenu);
+      menuLinks.forEach(link => link.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) closeMenu();
+      });
+
+      // Intersection Observer for reveal animations and skill bars
+      const revealElements = document.querySelectorAll('.reveal');
+      const progressBars = document.querySelectorAll('.skill-card__progress');
+      let progressAnimated = false;
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+      });
+
+      revealElements.forEach(el => revealObserver.observe(el));
+
+      const skillsSection = document.getElementById('skills');
+      const skillsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !progressAnimated) {
+            progressAnimated = true;
+            progressBars.forEach((bar, index) => {
+              setTimeout(() => {
+                bar.style.width = bar.getAttribute('data-width') + '%';
+              }, index * 120);
+            });
+            skillsObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.2
+      });
+
+      skillsObserver.observe(skillsSection);
+
+      // Active nav link on scroll
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav__link');
+
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navLinks.forEach(link => {
+              link.classList.remove('is-active');
+              if (link.getAttribute('href') === '#' + entry.target.id) {
+                link.classList.add('is-active');
+              }
+            });
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '-20% 0px -60% 0px',
+        threshold: 0
+      });
+
+      sections.forEach(section => sectionObserver.observe(section));
+
+      // Admin: login, live edit, save, export, restore
+      (function initAdmin() {
+        var ADMIN_PASSWORD = 'vieos2025';
+        var STORAGE_KEY = 'vieos-portfolio-edits';
+        var isAdmin = false;
+        var isEditing = false;
+
+        var trigger = document.getElementById('admin-trigger');
+        var overlay = document.getElementById('admin-modal-overlay');
+        var form = document.getElementById('admin-form');
+        var passwordInput = document.getElementById('admin-password');
+        var errorMsg = document.getElementById('admin-error');
+        var cancelBtn = document.getElementById('admin-cancel');
+        var modal = overlay.querySelector('.admin-modal');
+        var toolbar = document.getElementById('admin-toolbar');
+        var editToggle = document.getElementById('admin-edit-toggle');
+        var saveBtn = document.getElementById('admin-save');
+        var exportBtn = document.getElementById('admin-export');
+        var restoreBtn = document.getElementById('admin-restore');
+        var logoutBtn = document.getElementById('admin-logout');
+
+        function openModal() {
+          overlay.classList.add('is-open');
+          setTimeout(function() { passwordInput.focus(); }, 80);
+        }
+
+        function closeModal() {
+          overlay.classList.remove('is-open');
+          passwordInput.value = '';
+          errorMsg.classList.remove('is-visible');
+          modal.classList.remove('is-error');
+        }
+
+        trigger.addEventListener('click', function() {
+          if (isAdmin) {
+            document.body.classList.add('is-admin');
+            toolbar.hidden = false;
+          } else {
+            openModal();
+          }
+        });
+
+        cancelBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) closeModal();
+        });
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
+        });
+
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var pwd = passwordInput.value;
+          if (pwd === ADMIN_PASSWORD) {
+            isAdmin = true;
+            closeModal();
+            document.body.classList.add('is-admin');
+            toolbar.hidden = false;
+            setEditMode(true);
+          } else {
+            errorMsg.classList.add('is-visible');
+            modal.classList.remove('is-error');
+            void modal.offsetWidth; // restart shake animation
+            modal.classList.add('is-error');
+          }
+        });
+
+        function setEditMode(on) {
+          isEditing = on;
+          document.body.classList.toggle('is-editing', on);
+          editToggle.textContent = on ? 'Edit: On' : 'Edit: Off';
+          editToggle.setAttribute('aria-pressed', on ? 'true' : 'false');
+          editToggle.classList.toggle('is-active', on);
+          var editable = document.querySelectorAll('[data-editable]');
+          for (var i = 0; i < editable.length; i++) {
+            editable[i].setAttribute('contenteditable', on ? 'true' : 'false');
+          }
+        }
+
+        // Mark editable zones (called once on load)
+        function initEditable() {
+          var editable = document.querySelectorAll(
+            'h1, h2, h3, p:not(.footer__copy):not(.admin-modal__desc):not(.admin-modal__error):not(.admin-modal__label), ' +
+            '.hero__subtitle, .about__text, .skill-card__title, .skill-card__desc, ' +
+            '.service-card__title, .service-card__desc, .service-card__price, ' +
+            '.exp-card__title, .exp-card__company, .exp-card__tag, ' +
+            '.contact__title, .contact__desc, .contact__link, ' +
+            '.stats__value, .stats__label, .tech-tag, .hero__badge, .about__item, .about__value'
+          );
+          for (var i = 0; i < editable.length; i++) {
+            editable[i].setAttribute('data-editable', '');
+          }
+        }
+        initEditable();
+
+        editToggle.addEventListener('click', function() {
+          setEditMode(!isEditing);
+        });
+
+        function collectEdits() {
+          var edits = {};
+          var editable = document.querySelectorAll('[data-editable]');
+          for (var i = 0; i < editable.length; i++) {
+            edits[i] = editable[i].innerHTML;
+          }
+          return edits;
+        }
+
+        function applyEdits(edits) {
+          var editable = document.querySelectorAll('[data-editable]');
+          for (var i = 0; i < editable.length; i++) {
+            if (edits.hasOwnProperty(i) && typeof edits[i] === 'string') {
+              editable[i].innerHTML = edits[i];
+            }
+          }
+        }
+
+        saveBtn.addEventListener('click', function() {
+          try {
+            var edits = collectEdits();
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(edits));
+            saveBtn.textContent = 'Saved ✓';
+            setTimeout(function() { saveBtn.textContent = 'Save'; }, 1500);
+          } catch (err) {
+            alert('Save failed: ' + err.message);
+          }
+        });
+
+        function loadSavedEdits() {
+          try {
+            var raw = localStorage.getItem(STORAGE_KEY);
+            if (raw) {
+              var edits = JSON.parse(raw);
+              applyEdits(edits);
+            }
+          } catch (err) {
+            // corrupted storage, ignore
+          }
+        }
+        loadSavedEdits();
+
+        exportBtn.addEventListener('click', function() {
+          // Clone DOM, strip admin artifacts and editing state
+          var clone = document.documentElement.cloneNode(true);
+          // Remove editable attributes from clone
+          var editableClones = clone.querySelectorAll('[data-editable]');
+          for (var i = 0; i < editableClones.length; i++) {
+            editableClones[i].removeAttribute('contenteditable');
+            editableClones[i].removeAttribute('data-editable');
+          }
+          // Remove admin modal + toolbar
+          var modalClone = clone.querySelector('.admin-modal-overlay');
+          if (modalClone) modalClone.parentNode.removeChild(modalClone);
+          var toolbarClone = clone.querySelector('.admin-toolbar');
+          if (toolbarClone) toolbarClone.parentNode.removeChild(toolbarClone);
+          var triggerClone = clone.querySelector('.admin-trigger');
+          if (triggerClone) triggerClone.parentNode.removeChild(triggerClone);
+          // Remove is-admin / is-editing classes from body
+          var bodyClone = clone.querySelector('body');
+          if (bodyClone) {
+            bodyClone.classList.remove('is-admin', 'is-editing');
+          }
+          // Add saved edits into exported source (same as current DOM state)
+          var html = '<!DOCTYPE html>\n' + clone.outerHTML;
+          var blob = new Blob([html], { type: 'text/html' });
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = 'vieos-portfolio-edited.html';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        });
+
+        restoreBtn.addEventListener('click', function() {
+          if (confirm('Restore original content? This will discard all saved edits.')) {
+            localStorage.removeItem(STORAGE_KEY);
+            location.reload();
+          }
+        });
+
+        logoutBtn.addEventListener('click', function() {
+          isAdmin = false;
+          setEditMode(false);
+          document.body.classList.remove('is-admin');
+          toolbar.hidden = true;
+        });
+
+        // Prevent accidental link navigation while editing
+        document.addEventListener('click', function(e) {
+          if (isEditing && e.target.closest('a')) {
+            e.preventDefault();
+          }
+        }, true);
+
+        // Prevent form submits inside editable areas
+        document.addEventListener('submit', function(e) {
+          if (isEditing) e.preventDefault();
+        }, true);
+      })();
+
+      // Hero immediate reveal on load
+      document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('is-visible'));
+    })();
+  </script>
+</body>
+</html>
