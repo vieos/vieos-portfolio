@@ -32,14 +32,11 @@ python -m http.server 8000
 
 ## Admin Panel
 
-Scroll to footer → click "Admin" → password: `vieos2025`
+This production build does not include the client-side admin panel. It was removed for security before deployment.
 
-- Toggle edit mode to make text editable inline
-- Save edits to browser localStorage
-- Export edited HTML as a downloadable file
-- Restore original content anytime
+To make content changes, edit `index.html` directly and push to GitHub. Cloudflare Pages will auto-rebuild and deploy in ~30 seconds.
 
-> **Note:** Client-side admin is for convenience only. It is NOT secure for production secrets. For real authentication, use a backend.
+> **Note:** For a real CMS experience, consider using Cloudflare Workers + KV storage, or a headless CMS like Contentful/Strapi.
 
 ## Deploy to Cloudflare Pages
 
