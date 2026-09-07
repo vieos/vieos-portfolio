@@ -60,10 +60,14 @@ To make content changes, edit `index.html` directly and push to GitHub. Cloudfla
 
 ## Custom Domain on Cloudflare Pages
 
-1. In your Pages project → Custom domains → Add domain
-2. Enter your domain (e.g., `vieos.dev`)
+This site is configured for the custom domain **`vieos.id`**.
+
+1. In your Pages project → **Custom domains** → **Add domain**
+2. Enter `vieos.id` (or `www.vieos.id`)
 3. Cloudflare auto-configures DNS + SSL (if domain is on Cloudflare nameservers)
 4. Wait a few minutes for propagation
+
+> **Note:** If `vieos.id` is registered elsewhere, either transfer nameservers to Cloudflare or add a CNAME record pointing to `vieos-portfolio.pages.dev`.
 
 ## Update Workflow
 
