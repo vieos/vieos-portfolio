@@ -849,9 +849,10 @@
       color: var(--color-accent);
     }
 
-    .service-card__icon svg {
-      width: 24px;
-      height: 24px;
+    .service-card__icon img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
     }
 
     .service-card__title {
@@ -1046,10 +1047,11 @@
       outline-offset: 2px;
     }
 
-    .contact__link svg {
+    .contact__link img {
       width: 20px;
       height: 20px;
-      color: var(--color-accent);
+      object-fit: contain;
+      flex-shrink: 0;
     }
 
     @media (min-width: 900px) {
@@ -1146,8 +1148,7 @@
       border-radius: var(--radius-md);
       overflow: hidden;
     }
-    .tech-card__img img,
-    .tech-card__img svg {
+    .tech-card__img img {
       width: 48px;
       height: 48px;
       object-fit: contain;
@@ -1503,140 +1504,140 @@
         <div class="tech-gallery" id="tech-gallery" tabindex="0" aria-label="Technologies gallery, scroll horizontally">
           <div class="tech-card reveal">
             <div class="tech-card__img">
-              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="4" y="10" width="40" height="28" rx="3" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><path d="M14 24h4l3-6 4 12 3-6h6" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <img src="https://cdn.simpleicons.org/fortinet/22C55E" alt="Fortinet" width="48" height="48" loading="lazy">
             </div>
             <div class="tech-card__name">Fortinet</div>
             <div class="tech-card__cat">NGFW / UTM</div>
           </div>
           <div class="tech-card reveal reveal--stagger-1">
             <div class="tech-card__img">
-              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="18" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><path d="M16 24h16M24 16v16" stroke="#22C55E" stroke-width="2" stroke-linecap="round"/></svg>
+              <img src="https://cdn.simpleicons.org/paloaltonetworks/22C55E" alt="Palo Alto Networks" width="48" height="48" loading="lazy">
             </div>
             <div class="tech-card__name">Palo Alto</div>
             <div class="tech-card__cat">Next-Gen Firewall</div>
           </div>
           <div class="tech-card reveal reveal--stagger-2">
             <div class="tech-card__img">
-              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="8" y="8" width="32" height="32" rx="4" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><path d="M16 32l8-8 8 8M16 16h16" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <img src="https://cdn.simpleicons.org/checkpoint/22C55E" alt="Check Point" width="48" height="48" loading="lazy">
             </div>
             <div class="tech-card__name">Check Point</div>
             <div class="tech-card__cat">Firewall / Security</div>
           </div>
           <div class="tech-card reveal reveal--stagger-3">
             <div class="tech-card__img">
-              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="18" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><path d="M18 30l6-6-6-6M24 24h8" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <img src="https://cdn.simpleicons.org/cisco/22C55E" alt="Cisco SD-WAN" width="48" height="48" loading="lazy">
             </div>
             <div class="tech-card__name">Cisco SD-WAN</div>
             <div class="tech-card__cat">WAN / Routing</div>
           </div>
           <div class="tech-card reveal reveal--stagger-4">
             <div class="tech-card__img">
-              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 6l16 9v18l-16 9-16-9V15l16-9z" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><path d="M24 18v12M18 24h12" stroke="#22C55E" stroke-width="2" stroke-linecap="round"/></svg>
+              <img src="https://cdn.simpleicons.org/forcepoint/22C55E" alt="Forcepoint" width="48" height="48" loading="lazy">
             </div>
             <div class="tech-card__name">Forcepoint</div>
             <div class="tech-card__cat">Web / DLP Security</div>
           </div>
           <div class="tech-card reveal reveal--stagger-5">
             <div class="tech-card__img">
-              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="6" y="12" width="36" height="24" rx="3" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><rect x="12" y="18" width="10" height="10" rx="1" fill="#22C55E" opacity="0.3"/><rect x="26" y="18" width="10" height="10" rx="1" fill="#22C55E" opacity="0.5"/></svg>
+              <img src="https://cdn.simpleicons.org/vmware/22C55E" alt="VMware vSphere" width="48" height="48" loading="lazy">
             </div>
             <div class="tech-card__name">VMware vSphere</div>
             <div class="tech-card__cat">Virtualization</div>
           </div>
           <div class="tech-card reveal reveal--stagger-6">
             <div class="tech-card__img">
-              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><ellipse cx="24" cy="14" rx="14" ry="6" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><path d="M10 14v10c0 3.3 6.3 6 14 6s14-2.7 14-6V14" stroke="#22C55E" stroke-width="2"/><path d="M10 24v10c0 3.3 6.3 6 14 6s14-2.7 14-6V24" stroke="#22C55E" stroke-width="2" opacity="0.6"/></svg>
+              <img src="https://cdn.simpleicons.org/nutanix/22C55E" alt="Nutanix" width="48" height="48" loading="lazy">
             </div>
             <div class="tech-card__name">Nutanix</div>
             <div class="tech-card__cat">HCI / Cloud</div>
           </div>
           <div class="tech-card reveal">
             <div class="tech-card__img">
-              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="8" y="8" width="14" height="14" rx="2" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><rect x="26" y="8" width="14" height="14" rx="2" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><rect x="8" y="26" width="14" height="14" rx="2" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><rect x="26" y="26" width="14" height="14" rx="2" fill="#22C55E" opacity="0.3" stroke="#22C55E" stroke-width="2"/></svg>
+              <img src="https://cdn.simpleicons.org/microsoft/22C55E" alt="Hyper-V" width="48" height="48" loading="lazy">
             </div>
             <div class="tech-card__name">Hyper-V</div>
             <div class="tech-card__cat">Virtualization</div>
           </div>
           <div class="tech-card reveal reveal--stagger-1">
             <div class="tech-card__img">
-              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 6l16 6v12c0 8-7 14-16 18-9-4-16-10-16-18V12l16-6z" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><path d="M18 24l4 4 8-8" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <img src="https://cdn.simpleicons.org/sentinelone/22C55E" alt="SentinelOne" width="48" height="48" loading="lazy">
             </div>
             <div class="tech-card__name">SentinelOne</div>
             <div class="tech-card__cat">EDR / XDR</div>
           </div>
           <div class="tech-card reveal reveal--stagger-2">
             <div class="tech-card__img">
-              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="18" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><circle cx="24" cy="24" r="8" stroke="#22C55E" stroke-width="2"/><circle cx="24" cy="24" r="3" fill="#22C55E"/></svg>
+              <img src="https://cdn.simpleicons.org/forescout/22C55E" alt="ForeScout" width="48" height="48" loading="lazy">
             </div>
             <div class="tech-card__name">ForeScout</div>
             <div class="tech-card__cat">NAC / IoT Security</div>
           </div>
           <div class="tech-card reveal reveal--stagger-3">
             <div class="tech-card__img">
-              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="18" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><path d="M24 12v6M24 30v6M12 24h6M30 24h6M15 15l4 4M33 33l-4-4M15 33l4-4M33 15l-4 4" stroke="#22C55E" stroke-width="2" stroke-linecap="round"/></svg>
+              <img src="https://cdn.simpleicons.org/groupib/22C55E" alt="Group-IB" width="48" height="48" loading="lazy">
             </div>
             <div class="tech-card__name">Group-IB</div>
             <div class="tech-card__cat">Threat Intelligence</div>
           </div>
           <div class="tech-card reveal reveal--stagger-4">
             <div class="tech-card__img">
-              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M8 36l8-12 6 8 6-16 6 10 6-6" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="24" cy="24" r="18" fill="#1E293B" stroke="#22C55E" stroke-width="2"/></svg>
+              <img src="https://cdn.simpleicons.org/stellarcyber/22C55E" alt="Stellar Cyber" width="48" height="48" loading="lazy">
             </div>
             <div class="tech-card__name">Stellar Cyber</div>
             <div class="tech-card__cat">SIEM / SOC</div>
           </div>
           <div class="tech-card reveal reveal--stagger-5">
             <div class="tech-card__img">
-              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="18" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><path d="M24 14a10 10 0 0 1 10 10c0 5-4 9-10 10-6-1-10-5-10-10a10 10 0 0 1 10-10z" stroke="#22C55E" stroke-width="2"/><circle cx="24" cy="24" r="3" fill="#22C55E"/></svg>
+              <img src="https://cdn.simpleicons.org/socradar/22C55E" alt="SOCRadar" width="48" height="48" loading="lazy">
             </div>
             <div class="tech-card__name">SOCRadar</div>
             <div class="tech-card__cat">Attack Surface Mgmt</div>
           </div>
           <div class="tech-card reveal reveal--stagger-6">
             <div class="tech-card__img">
-              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 4l4 8h-8l4-8zM24 44l-4-8h8l-4 8zM4 24l8-4v8l-8-4zM44 24l-8 4v-8l8 4z" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><circle cx="24" cy="24" r="6" fill="#22C55E" opacity="0.3" stroke="#22C55E" stroke-width="2"/></svg>
+              <img src="https://cdn.simpleicons.org/kaspersky/22C55E" alt="Kaspersky" width="48" height="48" loading="lazy">
             </div>
             <div class="tech-card__name">Kaspersky</div>
             <div class="tech-card__cat">Endpoint Security</div>
           </div>
           <div class="tech-card reveal">
             <div class="tech-card__img">
-              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="10" y="10" width="28" height="28" rx="3" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><path d="M18 24h12M24 18v12" stroke="#22C55E" stroke-width="2" stroke-linecap="round"/></svg>
+              <img src="https://cdn.simpleicons.org/microsoftazure/22C55E" alt="Active Directory" width="48" height="48" loading="lazy">
             </div>
             <div class="tech-card__name">Active Directory</div>
             <div class="tech-card__cat">Identity / LDAP</div>
           </div>
           <div class="tech-card reveal reveal--stagger-1">
             <div class="tech-card__img">
-              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="6" y="10" width="36" height="8" rx="2" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><rect x="6" y="22" width="36" height="8" rx="2" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><rect x="6" y="34" width="36" height="8" rx="2" fill="#1E293B" stroke="#22C55E" stroke-width="2"/></svg>
+              <img src="https://cdn.simpleicons.org/microsoftoffice/22C55E" alt="Microsoft 365" width="48" height="48" loading="lazy">
             </div>
             <div class="tech-card__name">Microsoft 365</div>
             <div class="tech-card__cat">Productivity Cloud</div>
           </div>
           <div class="tech-card reveal reveal--stagger-2">
             <div class="tech-card__img">
-              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="18" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><path d="M16 32l6-8 4 4 6-10" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <img src="https://cdn.simpleicons.org/openvas/22C55E" alt="OpenVAS" width="48" height="48" loading="lazy">
             </div>
             <div class="tech-card__name">OpenVAS</div>
             <div class="tech-card__cat">Vulnerability Scan</div>
           </div>
           <div class="tech-card reveal reveal--stagger-3">
             <div class="tech-card__img">
-              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="10" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><path d="M28 28l10 10" stroke="#22C55E" stroke-width="2" stroke-linecap="round"/></svg>
+              <img src="https://cdn.simpleicons.org/nmap/22C55E" alt="Nmap" width="48" height="48" loading="lazy">
             </div>
             <div class="tech-card__name">Nmap</div>
             <div class="tech-card__cat">Network Discovery</div>
           </div>
           <div class="tech-card reveal reveal--stagger-4">
             <div class="tech-card__img">
-              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 6v12M24 30v12M6 24h12M30 24h12" stroke="#22C55E" stroke-width="2" stroke-linecap="round"/><circle cx="24" cy="24" r="8" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><circle cx="24" cy="24" r="3" fill="#22C55E"/></svg>
+              <img src="https://cdn.simpleicons.org/nuclei/22C55E" alt="Nuclei" width="48" height="48" loading="lazy">
             </div>
             <div class="tech-card__name">Nuclei</div>
             <div class="tech-card__cat">Vulnerability Scan</div>
           </div>
           <div class="tech-card reveal reveal--stagger-5">
             <div class="tech-card__img">
-              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="10" y="6" width="28" height="36" rx="3" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><path d="M18 30l4 4 8-12" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 14h12" stroke="#22C55E" stroke-width="2" stroke-linecap="round"/></svg>
+              <img src="https://cdn.simpleicons.org/letsencrypt/22C55E" alt="SSL / PKI" width="48" height="48" loading="lazy">
             </div>
             <div class="tech-card__name">SSL / PKI</div>
             <div class="tech-card__cat">Certificate Mgmt</div>
@@ -1656,34 +1657,25 @@
           <article class="service-card reveal">
             <span class="service-card__number">01</span>
             <div class="service-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="3"></circle>
-                <path d="M12 1v6m0 6v6m4.22-10.22l4.24-4.24M6.34 6.34L2.1 2.1M23 12h-6m-6 0H1m20.12 4.22l4.24 4.24M6.34 17.66l-4.24 4.24"></path>
-              </svg>
+              <img src="https://cdn.simpleicons.org/cisco/22C55E" alt="Network" width="28" height="28" loading="lazy">
             </div>
-            <h3 class="service-card__title">Network Design & Review</h3>
+            <h3 class="service-card__title">Network Design &amp; Review</h3>
             <p class="service-card__desc">Topology assessment, VLAN/IP planning, routing optimization, and SD-WAN readiness review.</p>
             <div class="service-card__price">$300 <span>from</span></div>
           </article>
           <article class="service-card reveal reveal--stagger-1">
             <span class="service-card__number">02</span>
             <div class="service-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-              </svg>
+              <img src="https://cdn.simpleicons.org/fortinet/22C55E" alt="Firewall" width="28" height="28" loading="lazy">
             </div>
-            <h3 class="service-card__title">Firewall Audit & Hardening</h3>
+            <h3 class="service-card__title">Firewall Audit &amp; Hardening</h3>
             <p class="service-card__desc">Rulebase cleanup, policy review, zone hardening, and Fortinet/Palo Alto/Check Point tuning.</p>
             <div class="service-card__price">$250 <span>from</span></div>
           </article>
           <article class="service-card reveal reveal--stagger-2">
             <span class="service-card__number">03</span>
             <div class="service-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                <path d="M9 12l2 2 4-4"></path>
-              </svg>
+              <img src="https://cdn.simpleicons.org/openvas/22C55E" alt="Security" width="28" height="28" loading="lazy">
             </div>
             <h3 class="service-card__title">Vulnerability Assessment</h3>
             <p class="service-card__desc">Internal/external scanning with OpenVAS/Nmap/Nuclei, risk prioritization, and remediation roadmap.</p>
@@ -1692,12 +1684,7 @@
           <article class="service-card reveal reveal--stagger-3">
             <span class="service-card__number">04</span>
             <div class="service-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-                <line x1="6" y1="6" x2="6.01" y2="6"></line>
-                <line x1="6" y1="18" x2="6.01" y2="18"></line>
-              </svg>
+              <img src="https://cdn.simpleicons.org/vmware/22C55E" alt="Infrastructure" width="28" height="28" loading="lazy">
             </div>
             <h3 class="service-card__title">Infrastructure Consulting</h3>
             <p class="service-card__desc">DC/virtualization design, HCI sizing, failover planning, migration strategy, and capacity review.</p>
@@ -1706,10 +1693,7 @@
           <article class="service-card reveal reveal--stagger-4">
             <span class="service-card__number">05</span>
             <div class="service-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M5 12h14"></path>
-                <path d="M12 5l7 7-7 7"></path>
-              </svg>
+              <img src="https://cdn.simpleicons.org/cisco/22C55E" alt="SD-WAN" width="28" height="28" loading="lazy">
             </div>
             <h3 class="service-card__title">SD-WAN Deployment</h3>
             <p class="service-card__desc">Multi-site design, edge provisioning, path policy, traffic steering, and cutover coordination.</p>
@@ -1718,15 +1702,9 @@
           <article class="service-card reveal reveal--stagger-5">
             <span class="service-card__number">06</span>
             <div class="service-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-                <line x1="16" y1="17" x2="8" y2="17"></line>
-                <polyline points="10 9 9 9 8 9"></polyline>
-              </svg>
+              <img src="https://cdn.simpleicons.org/microsoftoffice/22C55E" alt="Documentation" width="28" height="28" loading="lazy">
             </div>
-            <h3 class="service-card__title">IT Audit & Documentation</h3>
+            <h3 class="service-card__title">IT Audit &amp; Documentation</h3>
             <p class="service-card__desc">As-built diagrams, asset inventory, SOP drafting, policy review, and compliance-ready documentation.</p>
             <div class="service-card__price">$500 <span>from</span></div>
           </article>
@@ -1860,37 +1838,19 @@
               <p class="contact__desc">Available for freelance projects, consulting, and full-time opportunities. Preferred communication: chat or email. Response time under 24 hours.</p>
               <div class="contact__links">
                 <a href="mailto:contact@vieos.dev" class="contact__link">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                  </svg>
+                  <img src="https://cdn.simpleicons.org/gmail/22C55E" alt="Email" width="20" height="20" loading="lazy">
                   contact@vieos.dev
                 </a>
                 <a href="https://www.upwork.com" target="_blank" rel="noopener noreferrer" class="contact__link">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                    <line x1="6" y1="1" x2="6" y2="4"></line>
-                    <line x1="10" y1="1" x2="10" y2="4"></line>
-                    <line x1="14" y1="1" x2="14" y2="4"></line>
-                  </svg>
+                  <img src="https://cdn.simpleicons.org/upwork/22C55E" alt="Upwork" width="20" height="20" loading="lazy">
                   Upwork
                 </a>
                 <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="contact__link">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                    <rect x="2" y="9" width="4" height="12"></rect>
-                    <circle cx="4" cy="4" r="2"></circle>
-                  </svg>
+                  <img src="https://cdn.simpleicons.org/linkedin/22C55E" alt="LinkedIn" width="20" height="20" loading="lazy">
                   LinkedIn
                 </a>
                 <a href="https://www.fiverr.com" target="_blank" rel="noopener noreferrer" class="contact__link">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="9" cy="7" r="4"></circle>
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                  </svg>
+                  <img src="https://cdn.simpleicons.org/fiverr/22C55E" alt="Fiverr" width="20" height="20" loading="lazy">
                   Fiverr
                 </a>
               </div>
