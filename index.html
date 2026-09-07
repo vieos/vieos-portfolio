@@ -1091,6 +1091,168 @@
       color: var(--color-foreground-muted);
     }
 
+    /* Tech gallery — horizontal scroll */
+    .tech-gallery {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(220px, 1fr);
+      gap: var(--space-md);
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: var(--space-md);
+      margin-bottom: var(--space-sm);
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-border) transparent;
+    }
+    .tech-gallery::-webkit-scrollbar {
+      height: 6px;
+    }
+    .tech-gallery::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .tech-gallery::-webkit-scrollbar-thumb {
+      background: var(--color-border);
+      border-radius: 999px;
+    }
+    .tech-gallery::-webkit-scrollbar-thumb:hover {
+      background: var(--color-accent);
+    }
+
+    .tech-card {
+      scroll-snap-align: start;
+      padding: var(--space-lg);
+      background: var(--color-background-elev);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+    }
+    .tech-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(34, 197, 94, 0.4);
+      box-shadow: var(--shadow-md);
+    }
+    .tech-card__img {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto var(--space-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .tech-card__img img,
+    .tech-card__img svg {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+    .tech-card__name {
+      font-family: var(--font-display);
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      color: var(--color-foreground);
+      margin-bottom: var(--space-xs);
+    }
+    .tech-card__cat {
+      font-size: var(--fs-xs);
+      color: var(--color-foreground-muted);
+    }
+
+    .tech-gallery__nav {
+      display: flex;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-xl);
+    }
+    .tech-gallery__btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      color: var(--color-foreground);
+      background: var(--color-background-elev);
+      border: 1px solid var(--color-border);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+    }
+    .tech-gallery__btn:hover,
+    .tech-gallery__btn:focus-visible {
+      background: rgba(34, 197, 94, 0.1);
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    /* Portfolio gallery */
+    .gallery__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+    .gallery-item {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: var(--color-background-elev);
+      transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+    }
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(34, 197, 94, 0.4);
+      box-shadow: var(--shadow-md);
+    }
+    .gallery-item__img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-item__body {
+      padding: var(--space-lg);
+    }
+    .gallery-item__title {
+      font-family: var(--font-display);
+      font-size: var(--fs-base);
+      font-weight: 600;
+      color: var(--color-foreground);
+      margin-bottom: var(--space-xs);
+    }
+    .gallery-item__desc {
+      font-size: var(--fs-sm);
+      color: var(--color-foreground-muted);
+      line-height: 1.5;
+    }
+    .gallery-item__tag {
+      position: absolute;
+      top: var(--space-md);
+      left: var(--space-md);
+      padding: var(--space-xs) var(--space-sm);
+      font-family: var(--font-display);
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      color: var(--color-primary);
+      background: var(--color-accent);
+      border-radius: 999px;
+    }
+
+    @media (min-width: 640px) {
+      .gallery__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 1024px) {
+      .gallery__grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
     /* Reveal animations */
     .reveal {
       opacity: 0;
@@ -1144,6 +1306,7 @@
             <li><a href="#skills" class="nav__link">Skills</a></li>
             <li><a href="#services" class="nav__link">Services</a></li>
             <li><a href="#experience" class="nav__link">Experience</a></li>
+            <li><a href="#gallery" class="nav__link">Gallery</a></li>
             <li><a href="#contact" class="nav__link">Contact</a></li>
           </ul>
           <a href="#contact" class="nav__cta">Hire Me</a>
@@ -1172,6 +1335,7 @@
       <li><a href="#skills" class="nav__menu-link">Skills</a></li>
       <li><a href="#services" class="nav__menu-link">Services</a></li>
       <li><a href="#experience" class="nav__menu-link">Experience</a></li>
+      <li><a href="#gallery" class="nav__menu-link">Gallery</a></li>
       <li><a href="#contact" class="nav__menu-link">Contact</a></li>
     </ul>
     <a href="#contact" class="nav__menu-cta">Hire Me</a>
@@ -1328,27 +1492,155 @@
         </div>
 
         <h3 class="tech-cloud__title reveal">Technologies & Tools</h3>
-        <div class="tech-cloud">
-          <span class="tech-tag reveal reveal--stagger-1">Fortinet</span>
-          <span class="tech-tag reveal reveal--stagger-1">Palo Alto</span>
-          <span class="tech-tag reveal reveal--stagger-1">Check Point</span>
-          <span class="tech-tag reveal reveal--stagger-2">Cisco SD-WAN</span>
-          <span class="tech-tag reveal reveal--stagger-2">Forcepoint</span>
-          <span class="tech-tag reveal reveal--stagger-2">VMware vSphere</span>
-          <span class="tech-tag reveal reveal--stagger-3">Nutanix</span>
-          <span class="tech-tag reveal reveal--stagger-3">Hyper-V</span>
-          <span class="tech-tag reveal reveal--stagger-3">SentinelOne</span>
-          <span class="tech-tag reveal reveal--stagger-4">ForeScout</span>
-          <span class="tech-tag reveal reveal--stagger-4">Group-IB</span>
-          <span class="tech-tag reveal reveal--stagger-4">Stellar Cyber</span>
-          <span class="tech-tag reveal reveal--stagger-5">SOCRadar</span>
-          <span class="tech-tag reveal reveal--stagger-5">Kaspersky</span>
-          <span class="tech-tag reveal reveal--stagger-5">Active Directory</span>
-          <span class="tech-tag reveal reveal--stagger-6">Microsoft 365</span>
-          <span class="tech-tag reveal reveal--stagger-6">OpenVAS</span>
-          <span class="tech-tag reveal reveal--stagger-6">Nmap</span>
-          <span class="tech-tag reveal reveal--stagger-6">Nuclei</span>
-          <span class="tech-tag reveal reveal--stagger-6">SSL/PKI</span>
+        <div class="tech-gallery__nav reveal">
+          <button type="button" class="tech-gallery__btn" id="tech-prev" aria-label="Scroll left">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg>
+          </button>
+          <button type="button" class="tech-gallery__btn" id="tech-next" aria-label="Scroll right">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg>
+          </button>
+        </div>
+        <div class="tech-gallery" id="tech-gallery" tabindex="0" aria-label="Technologies gallery, scroll horizontally">
+          <div class="tech-card reveal">
+            <div class="tech-card__img">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="4" y="10" width="40" height="28" rx="3" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><path d="M14 24h4l3-6 4 12 3-6h6" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="tech-card__name">Fortinet</div>
+            <div class="tech-card__cat">NGFW / UTM</div>
+          </div>
+          <div class="tech-card reveal reveal--stagger-1">
+            <div class="tech-card__img">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="18" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><path d="M16 24h16M24 16v16" stroke="#22C55E" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="tech-card__name">Palo Alto</div>
+            <div class="tech-card__cat">Next-Gen Firewall</div>
+          </div>
+          <div class="tech-card reveal reveal--stagger-2">
+            <div class="tech-card__img">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="8" y="8" width="32" height="32" rx="4" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><path d="M16 32l8-8 8 8M16 16h16" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="tech-card__name">Check Point</div>
+            <div class="tech-card__cat">Firewall / Security</div>
+          </div>
+          <div class="tech-card reveal reveal--stagger-3">
+            <div class="tech-card__img">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="18" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><path d="M18 30l6-6-6-6M24 24h8" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="tech-card__name">Cisco SD-WAN</div>
+            <div class="tech-card__cat">WAN / Routing</div>
+          </div>
+          <div class="tech-card reveal reveal--stagger-4">
+            <div class="tech-card__img">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 6l16 9v18l-16 9-16-9V15l16-9z" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><path d="M24 18v12M18 24h12" stroke="#22C55E" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="tech-card__name">Forcepoint</div>
+            <div class="tech-card__cat">Web / DLP Security</div>
+          </div>
+          <div class="tech-card reveal reveal--stagger-5">
+            <div class="tech-card__img">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="6" y="12" width="36" height="24" rx="3" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><rect x="12" y="18" width="10" height="10" rx="1" fill="#22C55E" opacity="0.3"/><rect x="26" y="18" width="10" height="10" rx="1" fill="#22C55E" opacity="0.5"/></svg>
+            </div>
+            <div class="tech-card__name">VMware vSphere</div>
+            <div class="tech-card__cat">Virtualization</div>
+          </div>
+          <div class="tech-card reveal reveal--stagger-6">
+            <div class="tech-card__img">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><ellipse cx="24" cy="14" rx="14" ry="6" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><path d="M10 14v10c0 3.3 6.3 6 14 6s14-2.7 14-6V14" stroke="#22C55E" stroke-width="2"/><path d="M10 24v10c0 3.3 6.3 6 14 6s14-2.7 14-6V24" stroke="#22C55E" stroke-width="2" opacity="0.6"/></svg>
+            </div>
+            <div class="tech-card__name">Nutanix</div>
+            <div class="tech-card__cat">HCI / Cloud</div>
+          </div>
+          <div class="tech-card reveal">
+            <div class="tech-card__img">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="8" y="8" width="14" height="14" rx="2" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><rect x="26" y="8" width="14" height="14" rx="2" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><rect x="8" y="26" width="14" height="14" rx="2" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><rect x="26" y="26" width="14" height="14" rx="2" fill="#22C55E" opacity="0.3" stroke="#22C55E" stroke-width="2"/></svg>
+            </div>
+            <div class="tech-card__name">Hyper-V</div>
+            <div class="tech-card__cat">Virtualization</div>
+          </div>
+          <div class="tech-card reveal reveal--stagger-1">
+            <div class="tech-card__img">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 6l16 6v12c0 8-7 14-16 18-9-4-16-10-16-18V12l16-6z" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><path d="M18 24l4 4 8-8" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="tech-card__name">SentinelOne</div>
+            <div class="tech-card__cat">EDR / XDR</div>
+          </div>
+          <div class="tech-card reveal reveal--stagger-2">
+            <div class="tech-card__img">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="18" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><circle cx="24" cy="24" r="8" stroke="#22C55E" stroke-width="2"/><circle cx="24" cy="24" r="3" fill="#22C55E"/></svg>
+            </div>
+            <div class="tech-card__name">ForeScout</div>
+            <div class="tech-card__cat">NAC / IoT Security</div>
+          </div>
+          <div class="tech-card reveal reveal--stagger-3">
+            <div class="tech-card__img">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="18" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><path d="M24 12v6M24 30v6M12 24h6M30 24h6M15 15l4 4M33 33l-4-4M15 33l4-4M33 15l-4 4" stroke="#22C55E" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="tech-card__name">Group-IB</div>
+            <div class="tech-card__cat">Threat Intelligence</div>
+          </div>
+          <div class="tech-card reveal reveal--stagger-4">
+            <div class="tech-card__img">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M8 36l8-12 6 8 6-16 6 10 6-6" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="24" cy="24" r="18" fill="#1E293B" stroke="#22C55E" stroke-width="2"/></svg>
+            </div>
+            <div class="tech-card__name">Stellar Cyber</div>
+            <div class="tech-card__cat">SIEM / SOC</div>
+          </div>
+          <div class="tech-card reveal reveal--stagger-5">
+            <div class="tech-card__img">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="18" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><path d="M24 14a10 10 0 0 1 10 10c0 5-4 9-10 10-6-1-10-5-10-10a10 10 0 0 1 10-10z" stroke="#22C55E" stroke-width="2"/><circle cx="24" cy="24" r="3" fill="#22C55E"/></svg>
+            </div>
+            <div class="tech-card__name">SOCRadar</div>
+            <div class="tech-card__cat">Attack Surface Mgmt</div>
+          </div>
+          <div class="tech-card reveal reveal--stagger-6">
+            <div class="tech-card__img">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 4l4 8h-8l4-8zM24 44l-4-8h8l-4 8zM4 24l8-4v8l-8-4zM44 24l-8 4v-8l8 4z" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><circle cx="24" cy="24" r="6" fill="#22C55E" opacity="0.3" stroke="#22C55E" stroke-width="2"/></svg>
+            </div>
+            <div class="tech-card__name">Kaspersky</div>
+            <div class="tech-card__cat">Endpoint Security</div>
+          </div>
+          <div class="tech-card reveal">
+            <div class="tech-card__img">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="10" y="10" width="28" height="28" rx="3" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><path d="M18 24h12M24 18v12" stroke="#22C55E" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="tech-card__name">Active Directory</div>
+            <div class="tech-card__cat">Identity / LDAP</div>
+          </div>
+          <div class="tech-card reveal reveal--stagger-1">
+            <div class="tech-card__img">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="6" y="10" width="36" height="8" rx="2" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><rect x="6" y="22" width="36" height="8" rx="2" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><rect x="6" y="34" width="36" height="8" rx="2" fill="#1E293B" stroke="#22C55E" stroke-width="2"/></svg>
+            </div>
+            <div class="tech-card__name">Microsoft 365</div>
+            <div class="tech-card__cat">Productivity Cloud</div>
+          </div>
+          <div class="tech-card reveal reveal--stagger-2">
+            <div class="tech-card__img">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="18" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><path d="M16 32l6-8 4 4 6-10" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="tech-card__name">OpenVAS</div>
+            <div class="tech-card__cat">Vulnerability Scan</div>
+          </div>
+          <div class="tech-card reveal reveal--stagger-3">
+            <div class="tech-card__img">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="10" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><path d="M28 28l10 10" stroke="#22C55E" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="tech-card__name">Nmap</div>
+            <div class="tech-card__cat">Network Discovery</div>
+          </div>
+          <div class="tech-card reveal reveal--stagger-4">
+            <div class="tech-card__img">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 6v12M24 30v12M6 24h12M30 24h12" stroke="#22C55E" stroke-width="2" stroke-linecap="round"/><circle cx="24" cy="24" r="8" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><circle cx="24" cy="24" r="3" fill="#22C55E"/></svg>
+            </div>
+            <div class="tech-card__name">Nuclei</div>
+            <div class="tech-card__cat">Vulnerability Scan</div>
+          </div>
+          <div class="tech-card reveal reveal--stagger-5">
+            <div class="tech-card__img">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="10" y="6" width="28" height="36" rx="3" fill="#1E293B" stroke="#22C55E" stroke-width="2"/><path d="M18 30l4 4 8-12" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 14h12" stroke="#22C55E" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="tech-card__name">SSL / PKI</div>
+            <div class="tech-card__cat">Certificate Mgmt</div>
+          </div>
         </div>
       </div>
     </section>
@@ -1494,6 +1786,66 @@
               <span class="exp-card__tag">Site Rollout</span>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__eyebrow">Gallery</span>
+          <h2 class="section__title" id="gallery-title">Infrastructure in action</h2>
+          <p class="section__desc">Snapshots from the field — data centers, network deployments, and security operations. Replace these placeholders with your actual project photos.</p>
+        </div>
+        <div class="gallery__grid">
+          <figure class="gallery-item reveal">
+            <span class="gallery-item__tag">Data Center</span>
+            <img class="gallery-item__img" src="https://picsum.photos/seed/vieos-dc/640/400" alt="Data center server racks" loading="lazy" width="640" height="400">
+            <figcaption class="gallery-item__body">
+              <h3 class="gallery-item__title">Primary Data Center</h3>
+              <p class="gallery-item__desc">Rack deployment and cable management at primary DC facility.</p>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item reveal reveal--stagger-1">
+            <span class="gallery-item__tag">Network</span>
+            <img class="gallery-item__img" src="https://picsum.photos/seed/vieos-net/640/400" alt="Network equipment and cabling" loading="lazy" width="640" height="400">
+            <figcaption class="gallery-item__body">
+              <h3 class="gallery-item__title">Core Network Upgrade</h3>
+              <p class="gallery-item__desc">Core switch replacement and fiber backbone re-termination.</p>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item reveal reveal--stagger-2">
+            <span class="gallery-item__tag">Security</span>
+            <img class="gallery-item__img" src="https://picsum.photos/seed/vieos-sec/640/400" alt="Security operations dashboard" loading="lazy" width="640" height="400">
+            <figcaption class="gallery-item__body">
+              <h3 class="gallery-item__title">SOC Monitoring</h3>
+              <p class="gallery-item__desc">SIEM dashboard and threat hunting workflow in production.</p>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item reveal">
+            <span class="gallery-item__tag">Field</span>
+            <img class="gallery-item__img" src="https://picsum.photos/seed/vieos-field/640/400" alt="Field installation at remote site" loading="lazy" width="640" height="400">
+            <figcaption class="gallery-item__body">
+              <h3 class="gallery-item__title">Multi-Site Rollout</h3>
+              <p class="gallery-item__desc">Hardware installation across 100+ station sites nationwide.</p>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item reveal reveal--stagger-1">
+            <span class="gallery-item__tag">Virtualization</span>
+            <img class="gallery-item__img" src="https://picsum.photos/seed/vieos-vm/640/400" alt="Virtualization cluster management" loading="lazy" width="640" height="400">
+            <figcaption class="gallery-item__body">
+              <h3 class="gallery-item__title">HCI Cluster Build</h3>
+              <p class="gallery-item__desc">Nutanix AHV cluster deployment and live migration testing.</p>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item reveal reveal--stagger-2">
+            <span class="gallery-item__tag">Firewall</span>
+            <img class="gallery-item__img" src="https://picsum.photos/seed/vieos-fw/640/400" alt="Firewall rule base configuration" loading="lazy" width="640" height="400">
+            <figcaption class="gallery-item__body">
+              <h3 class="gallery-item__title">Firewall Migration</h3>
+              <p class="gallery-item__desc">Rule base cleanup and policy migration to next-gen firewall.</p>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -1678,6 +2030,31 @@
       });
 
       sections.forEach(section => sectionObserver.observe(section));
+
+      // Tech gallery horizontal scroll
+      var techGallery = document.getElementById('tech-gallery');
+      var techPrev = document.getElementById('tech-prev');
+      var techNext = document.getElementById('tech-next');
+
+      if (techGallery && techPrev && techNext) {
+        var scrollAmount = 280;
+        techPrev.addEventListener('click', function() {
+          techGallery.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+        techNext.addEventListener('click', function() {
+          techGallery.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+        // Keyboard navigation
+        techGallery.addEventListener('keydown', function(e) {
+          if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            techGallery.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+          } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            techGallery.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+          }
+        });
+      }
 
       // Hero immediate reveal on load
       document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('is-visible'));
